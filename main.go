@@ -15,7 +15,7 @@ func main() {
 
 	r := gin.Default()
 
-	t := template.Must(template.New("main").Funcs(template.FuncMap{"mul": Mul}).ParseGlob("templates/*"))
+	t := template.Must(template.New("main").ParseGlob("templates/*"))
 
 	r.SetHTMLTemplate(t)
 
@@ -35,8 +35,4 @@ func main() {
 	})
 
 	log.Fatal(r.Run(":" + port))
-}
-
-func Mul(param1 int, param2 int) int {
-	return param1 * param2
 }
