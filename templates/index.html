@@ -1,0 +1,9 @@
+{{define "index.tmpl"}}
+<table class="center">
+    {{ range .data }}
+    <tr>
+        <td>{{ . }}</td>
+    </tr>
+    {{ end }}
+</table>
+{{end}}
