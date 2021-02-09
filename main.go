@@ -31,7 +31,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.tmpl", gin.H{"data": data})
 	})
 
-	log.Fatal(r.Run(":3000"))
+	log.Fatal(r.Run(":60"))
 }
 
 func Mul(param1 int, param2 int) int {
