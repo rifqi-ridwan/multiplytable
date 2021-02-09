@@ -5,11 +5,14 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
 	r := gin.Default()
 
 	t := template.Must(template.New("main").Funcs(template.FuncMap{"mul": Mul}).ParseGlob("templates/*"))
@@ -31,7 +34,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.tmpl", gin.H{"data": data})
 	})
 
-	log.Fatal(r.Run(":60"))
+	log.Fatal(r.Run(":" + port))
 }
 
 func Mul(param1 int, param2 int) int {
